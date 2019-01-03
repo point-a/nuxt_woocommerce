@@ -33,6 +33,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios.js'
   ],
 
   /*
@@ -49,6 +50,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://woocommerce.local/wp-json/',
+    debug: true
   },
 
   /*
@@ -59,7 +62,9 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+      config.node = {
+        fs: 'empty'
+      }
     }
   }
 }
